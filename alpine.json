@@ -1,0 +1,11 @@
+{
+  "name": "Alpine Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:alpine-3",
+  "features": {
+    "ghcr.io/devcontainers/features/bash:1": {},
+    "ghcr.io/devcontainers/features/sshd:1": {}
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "apk update && apk add --no-cache git vim",
+  "remoteUser": "vscode"
+}
