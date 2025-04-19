@@ -1,0 +1,8 @@
+{
+  "name": "Void Linux Dev Container",
+  "image": "ghcr.io/void-linux/void-glibc-full:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "remoteUser": "vscode"
+}
