@@ -25,4 +25,5 @@ RUN if ! getent group vscode; then groupadd --gid 1000 vscode; fi \
     && chmod 0440 /etc/sudoers.d/vscode
 
 USER vscode
-SHELL ["/usr/bin/bash", "-lc"]
+SHELL ["/bin/bash", "-lc"]
+CMD [ "bash" ]
