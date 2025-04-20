@@ -3,16 +3,14 @@ FROM ghcr.io/void-linux/void-glibc:latest
 USER root
 
 RUN mkdir -p /etc/xbps.d && \
-    printf 'repository=https://repo.voidlinux.org/current\n' \
+    printf 'repository=https://repo-default.voidlinux.org/current\n' \
         > /etc/xbps.d/00-repository-main.conf && \
-    printf 'repository=https://repo.voidlinux.org/current/nonfree\n' \
+    printf 'repository=https://repo-default.voidlinux.org/current/nonfree\n' \
         > /etc/xbps.d/10-repository-nonfree.conf
 
-RUN xbps-install -Sy xbps && \
+RUN xbps-install -S && \
     xbps-install -u xbps && \
     xbps-install -y bash sudo shadow
-
-SHELL ["/bin/bash", "-lc"]
 
 RUN if ! getent group vscode; then groupadd --gid 1000 vscode; fi \
     && if ! id -u vscode > /dev/null 2>&1; then \
@@ -27,3 +25,4 @@ RUN if ! getent group vscode; then groupadd --gid 1000 vscode; fi \
     && chmod 0440 /etc/sudoers.d/vscode
 
 USER vscode
+SHELL ["/bin/bash", "-lc"]
