@@ -4,6 +4,6 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
-  "remoteUser": "vscode",
+  "remoteUser": "root",
   "features": {}
 }
