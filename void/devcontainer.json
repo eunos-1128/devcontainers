@@ -3,9 +3,6 @@
   "build": {
     "dockerfile": "./Dockerfile",
   },
-  "features": {
-    "ghcr.io/devcontainers/features/sshd:1": { "version": "1.0.10" }
-  },
   "customizations": {
     "vscode": { "extensions": [ "ms-vscode-remote.remote-containers" ] }
   },
