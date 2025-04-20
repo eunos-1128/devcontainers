@@ -4,9 +4,5 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
-  "features": {},
-  "customizations": {
-    "vscode": { "extensions": [ "ms-vscode-remote.remote-containers" ] }
-  },
   "remoteUser": "vscode"
 }
