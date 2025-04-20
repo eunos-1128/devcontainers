@@ -4,6 +4,10 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
+  "features": {
+    // https://github.com/devcontainers/features/tree/main/src/docker-outside-of-docker
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
   "customizations": {
     "vscode": { "extensions": [ "ms-vscode-remote.remote-containers" ] }
   },
