@@ -1,7 +1,8 @@
 {
   "name": "Void Linux Dev Container",
   "build": {
-    "dockerfile": "./Dockerfile",
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
   "customizations": {
     "vscode": { "extensions": [ "ms-vscode-remote.remote-containers" ] }
