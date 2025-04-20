@@ -4,10 +4,6 @@
     "dockerfile": "Dockerfile",
     "context": "."
   },
-  "remoteUser": "root",
-  "features": {
-    "ghcr.io/devcontainers/features/sshd:1": {
-      "version": "latest"
-    }
-  }
+  "remoteUser": "vscode",
+  "features": {}
 }
