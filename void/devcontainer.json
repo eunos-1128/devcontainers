@@ -2,7 +2,7 @@
   "name": "Void Linux Dev Container",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": ".."
+    "context": "."
   },
   "features": {},
   "customizations": {
