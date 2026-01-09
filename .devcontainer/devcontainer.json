@@ -1,0 +1,13 @@
+{
+  "name": "Void Linux",
+  "image": "ghcr.io/void-linux/void-linux:latest-x86_64",
+  "postCreateCommand": "xbps-install -Syu && xbps-install -y base-devel git curl tar bash",
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      }
+    }
+  }
+}
