@@ -1,9 +1,15 @@
 {
-  "name": "Void Linux Dev Container",
+  "name": "Void Linux",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": "."
+    "context":  "."
   },
   "remoteUser": "root",
-  "features": {}
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
 }
