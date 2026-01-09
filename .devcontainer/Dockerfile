@@ -2,40 +2,28 @@ FROM ghcr.io/void-linux/void-glibc-full:latest
 
 # ミラー設定
 RUN mkdir -p /etc/xbps.d && \
-    echo "repository=https://repo-default.voidlinux.org/current" > /etc/xbps.d/00-repository-main.conf && \
-    echo "repository=https://repo-default.voidlinux.org/current/musl" > /etc/xbps.d/01-repository-multilib.conf
+    echo "repository=https://repo-default.voidlinux.org/current" > /etc/xbps.d/00-repository-main.conf
 
 # システム更新と基本パッケージ
 RUN xbps-install -Syu xbps && \
     xbps-install -Syu
 
 # VS Code Server互換性のための重要なパッケージ
-RUN xbps-install -y \
+# -u フラグで既存パッケージの更新を許可
+RUN xbps-install -Syu \
     base-devel \
     bash \
     bash-completion \
     git \
     curl \
     wget \
-    tar \
-    gzip \
-    bzip2 \
     xz \
     unzip \
-    ca-certificates \
-    openssl \
-    procps-ng \
     sudo \
     vim \
     nano \
     ncurses \
     ncurses-term \
-    shadow \
-    which \
-    findutils \
-    coreutils \
-    util-linux \
-    glibc \
     glibc-devel \
     libstdc++ \
     libgcc \
@@ -44,11 +32,9 @@ RUN xbps-install -y \
     python3 \
     gnupg2 \
     libsecret \
-    krb5 \
     krb5-libs \
     libX11 \
-    libxkbfile \
-    libsecret && \
+    libxkbfile && \
     xbps-remove -Oy
 
 # VS Code Server用の追加設定
@@ -56,7 +42,7 @@ RUN ln -sf /bin/bash /bin/sh
 
 # 非rootユーザー作成
 RUN useradd -m -s /bin/bash -G wheel vscode && \
-    echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/vscode && \
+    echo "vscode ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers. d/vscode && \
     chmod 0440 /etc/sudoers.d/vscode
 
 # ディレクトリ権限設定
