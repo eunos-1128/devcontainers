@@ -6,14 +6,12 @@
   },
   "remoteUser": "codespace",
   
-  // Codespacesの初期化設定
   "onCreateCommand": {
     "setup": "bash -c 'echo \"Void Linux Codespace\" && whoami && pwd'"
   },
   
   "postCreateCommand": "echo 'Setup complete!'",
   
-  // VS Code設定
   "customizations":  {
     "vscode": {
       "settings": {
@@ -34,24 +32,20 @@
     }
   },
   
-  // 環境変数
   "remoteEnv": {
     "SHELL": "/bin/bash",
     "TERM": "xterm-256color"
   },
   
-  // マウント設定（VS Code Server用）
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
   ],
   
-  // 追加のCapabilities
   "capAdd": [],
   
   // init process
   "init": true,
   
-  // 権限設定
   "containerEnv": {
     "USER": "codespace"
   }
