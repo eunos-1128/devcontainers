@@ -32,7 +32,6 @@ RUN xbps-install -Syu \
     python3 \
     gnupg2 \
     libsecret \
-    krb5-libs \
     libX11 \
     libxkbfile && \
     xbps-remove -Oy
