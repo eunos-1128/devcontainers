@@ -1,13 +1,14 @@
 {
-  "name": "Void Linux glibc Custom",
+  "name": "Void Linux",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "context":  "."
   },
   "remoteUser": "root",
   "customizations": {
     "vscode": {
       "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
+        "terminal.integrated.defaultProfile.linux": "bash"
       }
     }
   }
