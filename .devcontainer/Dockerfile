@@ -39,20 +39,18 @@ RUN xbps-install -Syu \
 # VS Code Server用の追加設定
 RUN ln -sf /bin/bash /bin/sh
 
-RUN groupadd vscode
-
 # 非rootユーザー作成
-RUN useradd -m -s /bin/bash -G vscode vscode && \
-    echo "vscode ALL=(root) NOPASSWD:ALL" >> /etc/sudoers.d/vscode && \
-    chmod 0440 /etc/sudoers.d/vscode
+RUN useradd -m -s /bin/bash codespace && \
+    echo "codespace ALL=(root) NOPASSWD:ALL" >> /etc/sudoers.d/codespace && \
+    chmod 0440 /etc/sudoers.d/codespace
 
 # ディレクトリ権限設定
 RUN mkdir -p /home/vscode/.vscode-server /home/vscode/.vscode-server-insiders && \
-    chown -R vscode:vscode /home/vscode
+    chown -R root:root /home/vscode
 
 # ワークスペースディレクトリ
-WORKDIR /workspace
-RUN chown -R vscode:root /workspace
+WORKDIR /workspaces
+RUN chown -R codespace:root /workspaces
 
 SHELL ["/bin/bash", "-c"]
 
