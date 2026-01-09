@@ -1,10 +1,10 @@
 {
-  "name": "Void Linux (glibc) - VS Code Compatible",
+  "name": "Void Linux",
   "build": {
     "dockerfile": "Dockerfile",
     "context": "."
   },
-  "remoteUser": "vscode",
+  "remoteUser": "codespace",
   
   // Codespacesの初期化設定
   "onCreateCommand": {
@@ -53,6 +53,6 @@
   
   // 権限設定
   "containerEnv": {
-    "USER": "vscode"
+    "USER": "codespace"
   }
 }
