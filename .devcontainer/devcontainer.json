@@ -1,7 +1,8 @@
 {
-  "name": "Void Linux",
-  "image": "ghcr.io/void-linux/void-linux:latest-x86_64",
-  "postCreateCommand": "xbps-install -Syu && xbps-install -y base-devel git curl tar bash",
+  "name": "Void Linux glibc Custom",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "remoteUser": "root",
   "customizations": {
     "vscode": {
