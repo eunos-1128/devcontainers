@@ -1,15 +1,58 @@
 {
-  "name": "Void Linux",
+  "name": "Void Linux (glibc) - VS Code Compatible",
   "build": {
     "dockerfile": "Dockerfile",
-    "context":  "."
+    "context": "."
   },
-  "remoteUser": "root",
-  "customizations": {
+  "remoteUser": "vscode",
+  
+  // Codespacesの初期化設定
+  "onCreateCommand": {
+    "setup": "bash -c 'echo \"Void Linux Codespace\" && whoami && pwd'"
+  },
+  
+  "postCreateCommand": "echo 'Setup complete!'",
+  
+  // VS Code設定
+  "customizations":  {
     "vscode": {
       "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
+        "terminal.integrated.defaultProfile. linux": "bash",
+        "terminal.integrated.profiles.linux":  {
+          "bash": {
+            "path": "/bin/bash",
+            "args": ["-l"],
+            "icon": "terminal-bash"
+          }
+        },
+        "files.watcherExclude": {
+          "**/.git/objects/**": true,
+          "**/.git/subtree-cache/**": true,
+          "**/node_modules/*/**": true
+        }
       }
     }
+  },
+  
+  // 環境変数
+  "remoteEnv": {
+    "SHELL": "/bin/bash",
+    "TERM": "xterm-256color"
+  },
+  
+  // マウント設定（VS Code Server用）
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ],
+  
+  // 追加のCapabilities
+  "capAdd": [],
+  
+  // init process
+  "init": true,
+  
+  // 権限設定
+  "containerEnv": {
+    "USER": "vscode"
   }
 }
