@@ -40,8 +40,8 @@ RUN xbps-install -Syu \
 RUN ln -sf /bin/bash /bin/sh
 
 # 非rootユーザー作成
-RUN useradd -m -s /bin/bash -G wheel vscode && \
-    echo "vscode ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers. d/vscode && \
+RUN useradd -m -s /bin/bash -G vscode && \
+    echo "vscode ALL=(root) NOPASSWD:ALL" >> /etc/sudoers.d/vscode && \
     chmod 0440 /etc/sudoers.d/vscode
 
 # ディレクトリ権限設定
@@ -50,7 +50,7 @@ RUN mkdir -p /home/vscode/.vscode-server /home/vscode/.vscode-server-insiders &&
 
 # ワークスペースディレクトリ
 WORKDIR /workspace
-RUN chown -R vscode:vscode /workspace
+RUN chown -R vscode:root /workspace
 
 SHELL ["/bin/bash", "-c"]
 
