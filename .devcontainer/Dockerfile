@@ -1,4 +1,4 @@
-FROM ghcr.io/void-linux/void-linux:latest-x86_64-glibc
+FROM ghcr.io/void-linux/void-glibc-full:latest
 
 RUN xbps-install -Syu xbps && \
     xbps-install -Syu && \
@@ -14,7 +14,6 @@ RUN xbps-install -Syu xbps && \
         sudo \
         vim
 
-# 作業ディレクトリの設定
 WORKDIR /workspace
 
 SHELL ["/bin/bash", "-c"]
