@@ -39,8 +39,10 @@ RUN xbps-install -Syu \
 # VS Code Server用の追加設定
 RUN ln -sf /bin/bash /bin/sh
 
+RUN groupadd vscode
+
 # 非rootユーザー作成
-RUN useradd -m -s /bin/bash -G vscode && \
+RUN useradd -m -s /bin/bash -G vscode vscode && \
     echo "vscode ALL=(root) NOPASSWD:ALL" >> /etc/sudoers.d/vscode && \
     chmod 0440 /etc/sudoers.d/vscode
 
