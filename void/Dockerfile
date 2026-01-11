@@ -7,33 +7,15 @@ RUN xbps-install -Syu xbps && \
     xbps-install -Syu
 
 RUN xbps-install -Syu \
-    base-devel \
-    bash \
-    zsh \
     bash-completion \
-    fastfetch \
-    git \
-    curl \
-    wget \
-    xz \
-    unzip \
-    sudo \
-    helix \
-    ncurses \
-    ncurses-term \
-    glibc-devel \
-    libstdc++ \
-    libgcc \
-    gcc \
-    nodejs \
-    python3 \
-    jupyterlab \
-    rust \
-    ruby \
     gnupg2 \
+    fastfetch \
+    helix \
     libsecret \
-    libX11 \
-    libxkbfile && \
+    jupyterlab \
+    ruby \
+    rust \
+    zsh && \
     xbps-remove -Oy
 
 RUN ln -sf /bin/bash /bin/sh
