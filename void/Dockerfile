@@ -7,12 +7,19 @@ RUN xbps-install -Syu xbps && \
     xbps-install -Syu
 
 RUN xbps-install -Syu \
+    bash \
     bash-completion \
-    gnupg2 \
+    cmake \
     fastfetch \
+    git \
+    github-cli \
+    gnupg2 \
     helix \
     libsecret \
+    ninja \
+    nodejs \
     jupyterlab \
+    python \
     ruby \
     rust \
     zsh && \
