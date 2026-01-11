@@ -11,6 +11,7 @@ RUN xbps-install -Syu \
     bash \
     zsh \
     bash-completion \
+    fastfetch \
     git \
     curl \
     wget \
