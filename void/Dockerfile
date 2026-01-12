@@ -9,6 +9,7 @@ RUN xbps-install -Syu xbps && \
 RUN xbps-install -Syu \
     bash \
     bash-completion \
+    cargo \
     cmake \
     fastfetch \
     git \
