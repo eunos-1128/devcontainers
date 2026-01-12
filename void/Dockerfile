@@ -23,6 +23,7 @@ RUN xbps-install -Syu \
     python \
     ruby \
     rust \
+    sudo \
     zsh && \
     xbps-remove -Oy
 
